@@ -56,6 +56,8 @@ Requirements:
 
 - Discord.py Library
 
+- Asyncio Library
+
 ####################################################
 
 Installation:
