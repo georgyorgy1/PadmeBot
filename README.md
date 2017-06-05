@@ -3,6 +3,13 @@ A shitposting bot based on AestheticsBot. Comes with the best shitposting comman
 
 ####################################################
 
+Automated Shitposting features:
+
+- Replies "4u" when someone says "big guy"
+- Prints Unix Time every hour
+
+####################################################
+
 Commands (for everyone):
 
 $help - see help message
@@ -26,6 +33,9 @@ $irand - generate a random int32 number
 $nrand - Like irand, but with a range. This prints the help info
 
 $book/$ebook - get a random ebook for you to read
+
+$sesocuck - posts the link to seso cuck video
+
 
 ####################################################
 
