@@ -20,10 +20,6 @@ master = "" #your Discord ID here. This can be a list if you want
 master_chan = "" #Master channel here for the hourly shitposting
 #xtime = str(dt.now())
 
-def func_test():
-    time.sleep(0.1)
-    time.sleep(0.1)
-
 @bot.event
 @asyncio.coroutine
 async def on_ready():
