@@ -192,6 +192,11 @@ async def on_message(message):
                 print(xtime + ": " + str(message.author.id) + " generated a random number using nrand")
 
     elif message.content.startswith("$ebook") or message.content.startswith("$book"):
+
+        bookSelected = random.choice(booksList.keys())
+
+        await bot.send_message(message.channel, bookSelected)
+
         await bot.send_message(message.channel, random.choice(open('books.txt').readlines()));
         print(xtime + ": " + "$ebook requested by " + message.author.id)
         
