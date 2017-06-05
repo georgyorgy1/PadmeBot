@@ -44,6 +44,7 @@ Requirements:
 - Discord.py Library
 
 ####################################################
+
 Installation:
 
 1. Change the master and master_chan from "" to your Discord Account ID (for master) and Discord channel ID (for master_chan)
