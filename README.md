@@ -41,7 +41,14 @@ $mindtrick - make the bot say what you want
 
 
 
+
+
+
+
+
 Requirements:
+
+
 
 - Discord.py Library
 
