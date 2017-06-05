@@ -36,7 +36,6 @@ async def on_ready():
 @bot.event
 @asyncio.coroutine
 async def on_message(message):
-    # filer = open("roaster.txt", "r");
     global xtime;
     global master;
     xtime = str(dt.now())
@@ -124,7 +123,6 @@ async def on_message(message):
 
     if message.content.startswith("$bongtest"):
         mtime = time.strftime("%A, %B %d, %Y %I:%M:%S %p")
-        #rtime = dt.strptime(mtime, "%Y-%m-%d %H:%M:%S").strftime("%Y-%m-%d %I:%M:%S %p")
         await bot.send_message(message.channel, "```css\nBONG BONG BOT: RELOADED\n\nIt's another hour, niggers. Here are the fucking times in some cities around the world\n\nManila:\n" + mtime + "\n```")
         print(xtime + ": " + "This fag asked for bong bong: " + str(message.author.id))
 
@@ -139,10 +137,7 @@ async def on_message(message):
 
     if message.content.startswith("$nrand"):
         xrand =  message.content[len('$nrand'):].strip();
-        #xrand = random.randint(0, 2147483647)
-        #await bot.send_message(message.channel, str(xrand))
-        #print(xtime + ": " + str(message.author.id) + " generated a random number")
-
+        
         if xrand == "":
             await bot.send_message(message.channel, "```\nThe nrand command generates a random number from 0 to your specified range (up to the number you desire). \n\nDo ($nrand <number range>) (without ()) to generate a random number.\n```")
             print(xtime + ": " + str(message.author.id) + " asked for help on nrand")
@@ -182,43 +177,29 @@ async def on_message(message):
         await bot.send_message(message.channel, random.choice(open('books.txt').readlines()));
         print(xtime + ": " + "$ebook requested by " + message.author.id)
 
-    #if "lol" in message.content:
-        #global mt
-        #global m
+    if "lol" in message.content:
+        await bot.add_reaction(message, '😂')
+        print(xtime + ": " + "Emoji shitpost requested by " + message.author.id)
+        
+    if message.content.startswith("$sesocuck"):
+        await bot.send_message(message.channel, "https://youtu.be/c6S8cgAoaNM");
+        print(str(message.author) + " requested for $sesocuck")
 
-        # mt = dt.now().minute
-        # m = 1
-        #await bot.add_reaction(message, '😂')
-        #print(xtime + ": " + "Emoji shitpost requested by " + message.author.id)
-        # print(str(message.author.id) + " requested for big guy")
+    if message.content.find('big guy'):
+        global m
+        global mt
 
-        #if m == 0:
-            #mt = dt.now().minute
-            #m = 1
-            #await bot.send_message(message.channel, "4u");
-            #print(str(message.author.id) + " requested for big guy")
+        if m == 0:
+            m = 1
+            mt = dt.now().minute
+            await bot.send_message(discord.Object(id="298735319694704640"), "4u");
+            print(str(message.author.id) + " requested for big guy");
 
-    #if dt.now().minute == mt + 2:
-        #m = 0
+        else:
+            m = 1
 
-    #if message.content.startswith("$sesocuck"):
-        #await bot.send_message(message.channel, "https://youtu.be/c6S8cgAoaNM");
-        #print(str(message.author) + " requested for $sesocuck")
-
-    #if message.content.find('big guy'):
-        #global m
-        #global mt
-
-        #if m == 0:
-            #m = 1
-            #mt = dt.now().minute
-            #await bot.send_message(discord.Object(id="298735319694704640"), str(dt.now()));
-
-        #else:
-            #m = 1
-
-    #if dt.now().minute == mt + 2:
-        #m = 0;
+    if dt.now().minute == mt + 2:
+        m = 0;
 
 def main():
     global xtime
