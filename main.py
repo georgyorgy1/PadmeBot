@@ -1,3 +1,4 @@
+#This bot is still in alpha/testing stages.
 import discord
 import asyncio
 import random
@@ -210,10 +211,8 @@ def main():
     bot_start = "u" #input("Start bot as?(u/t): ");
 
     if bot_start == "u":
-        #email = input(xtime + ": " + "Enter email: ");
-        #password = input(xtime + ": " + "Enter password: ");
-        email = "georgesorsisafaggot@muslim.com";
-        password = "H9$/jH!KRrLZ?'3,";
+        email = input(xtime + ": " + "Enter email: ");
+        password = input(xtime + ": " + "Enter password: ");
         print(xtime + ": " + "Executing startup sequence");
         bot.run(email, password);
         email = "";
