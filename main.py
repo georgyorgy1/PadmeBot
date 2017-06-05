@@ -16,8 +16,8 @@ global master
 count = 0;
 m = 0;
 mt = 0;
-master = "" #your Discord ID here. This can be a list if you want
-master_chan = "" #Master channel here for the hourly shitposting
+master = ["213869966003273728", "174671055544123392"] #your Discord ID here. This can be a list if you want
+master_chan = "321228116796112897" #Master channel here for the hourly shitposting
 #xtime = str(dt.now())
 
 async def unixReport():
@@ -72,7 +72,7 @@ async def on_message(message):
         print(xtime + ": " + str(message.author.id) + " tried to submit an aesthetic OC but forgot that OC submission is currently not possible at this time");
 
     elif message.content.startswith('$mindtrick'):
-        if message.author.id == master:
+        if message.author.id in master:
             str_content = message.content[len('$mindtrick'):].strip();
             await bot.send_message(message.channel, str_content);
             print(xtime + ": " + "$mindtrick request sent!")
@@ -95,7 +95,7 @@ async def on_message(message):
         print(xtime + ": " + str(message.author.id) + " requested for $ping.")
 
     elif message.content.startswith("$r"):
-        if message.author.id == master:
+        if message.author.id in master:
             str_contento = message.content[len('$r'):].strip();
             str_contente = "t!rep " + str_contento
             await bot.send_message(message.channel, str_contente);
@@ -108,7 +108,7 @@ async def on_message(message):
             print(xtime + ": " + str(message.author.id) + " requested for " + "$r but was not granted access due to ID not matching");
 
     elif message.content.startswith("$d"):
-        if message.author.id == master:
+        if message.author.id in master:
             str_contenta = message.content[len('$d'):].strip();
             str_contentb = "t!daily " + str_contenta;
             await bot.send_message(message.channel, str_contentb);
