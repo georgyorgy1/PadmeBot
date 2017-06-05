@@ -20,7 +20,22 @@ master = ["213869966003273728", "174671055544123392"] #your Discord ID here. Thi
 master_chan = "321228116796112897" #Master channel here for the hourly shitposting
 #xtime = str(dt.now())
 
+
+booksList = {
+    "CSharp-Book-2016-Rob-Miles-82.pdf": "http://www.robmiles.com/s/CSharp-Book-2016-Rob-Miles-82.pdf",
+    "Inside-The-Third-Reich.txt": "https://archive.org/details/Inside_the_Third_Reich_Albert_Speer",
+    "tutorial.pdf": "http://www.cplusplus.com/files/tutorial.pdf",
+    "Luthereng.pdf": "http://vho.org/aaargh/fran/livres9/Luthereng.pdf",
+    "mein-kampf.txt": "https://archive.org/details/meinkampf035176mbp",
+    "Us-military-GermanPhraseBooken194365P..pdf": "https://archive.org/details/GermanPhraseBook_987",
+    "DanzigIsGerman.pdf": "https://archive.org/details/DanzigIsGerman",
+    "culture-of-critique.pdf": "https://document.li/u4Ng",
+    "": "https://cdn.discordapp.com/attachments/302185287545782273/321222411422924800/Suicide_of_a_Superpower_-_Patrick_J._Buchanan.epub"
+}
+
+
 async def unixReport():
+    global count
     while True:
         if dt.now().minute == 0: #if you want to add channels, then add more await bot.send_message stuff. Idk
             if count == 0:
@@ -53,7 +68,6 @@ async def on_message(message):
     global xtime;
     global master;
     xtime = str(dt.now())
-    global count;
 
     if message.content.startswith("$about"):
         await bot.send_message(message.channel, "PadmeBot (aka ThinkingBot/FlamePrincessBot). Copyright Emperor Kek");
@@ -189,7 +203,7 @@ async def on_message(message):
         await bot.add_reaction(message, '😂')
         print(xtime + ": " + "Emoji shitpost requested by " + message.author.id)
 
-    if message.content.find('big guy'):
+    if 'big guy' in message.content:
         global m
         global mt
 
