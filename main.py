@@ -204,7 +204,7 @@ def main():
     email = "";
     password = "";
     token = "";
-    bot_start = "u" #input("Start bot as?(u/t): ");
+    bot_start = input("Start bot as?(u/t): ");
 
     if bot_start == "u":
         email = input(xtime + ": " + "Enter email: ");
