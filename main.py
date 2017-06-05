@@ -18,6 +18,7 @@ m = 0;
 mt = 0;
 master = ["213869966003273728", "174671055544123392"] #your Discord ID here. This can be a list if you want
 master_chan = "321228116796112897" #Master channel here for the hourly shitposting
+channel_blacklist = ["", "", ""] #If an/a admin/moderator (or you) don't want the bot to shitpost emojis or "4u" in a certain channel, then add the channel ID here
 #xtime = str(dt.now())
 
 
@@ -200,23 +201,21 @@ async def on_message(message):
         print(str(message.author) + " requested for $sesocuck")
 
     if "lol" in message.content:
-        await bot.add_reaction(message, '😂')
-        print(xtime + ": " + "Emoji shitpost requested by " + message.author.id)
+        if message.channel not in channel_blacklist:
+            await bot.add_reaction(message, '😂')
+            print(xtime + ": " + "Emoji shitpost requested by " + message.author.id)
 
     if 'big guy' in message.content:
         global m
         global mt
 
-        if m == 0:
+        if m == 0 and message.channel not in channel_blacklist:
             m = 1
             mt = dt.now().minute
             await bot.send_message(discord.Object(id = master_chan), "4u");
             print(str(message.author.id) + " requested for big guy");
-
-        else:
-            m = 1
-
-    if dt.now().minute == mt + 2:
+        
+        if dt.now().minute == mt + 2:
         m = 0;
 
 def main():
