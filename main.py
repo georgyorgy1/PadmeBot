@@ -27,7 +27,7 @@ async def unixReport():
                 count = 1
                 await bot.send_message(discord.Object(id = master_chan), "Hourly Unix Time report: " + str(int(time.time())));
                 #ftime = time.strftime("%A, %B %d, %Y %I:%M:%S %p")
-                await bot.send_message(discord.Object(id = master_chan), "```css\nBONG BONG BOT: RELOADED\n\nIt's another hour, niggers. Here are the fucking times in some cities around the world\n\nManila:\n" + ftime + "\n```")
+                #await bot.send_message(discord.Object(id = master_chan), "```css\nBONG BONG BOT: RELOADED\n\nIt's another hour, niggers. Here are the fucking times in some cities around the world\n\nManila:\n" + ftime + "\n```")
                 print(xtime + ": " + "Hourly Unix Time report sent!");
 
         elif dt.now().minute == 1:
