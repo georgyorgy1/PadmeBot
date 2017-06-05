@@ -33,7 +33,7 @@ async def unixReport():
         elif dt.now().minute == 1:
             count = 0;
 
-        time.sleep(1)
+        await asyncio.sleep(1)
 
 @bot.event
 @asyncio.coroutine
@@ -131,7 +131,12 @@ async def on_message(message):
         print(xtime + ": " + str(message.author.id) + " generated a random number using irand")
 
     elif message.content.startswith("$help"):
-        await bot.send_message(message.channel, open('help.txt').read());
+        e = discord.Embed(colour=0x3F6A7F)
+        theText = open("help.txt")
+        e.title = "Hey there, {}, I'm Padme, the senator from Naboo and wife of the Chosen One.".format(str(message.author)[:-5])
+        e.description = theText.read()
+        await bot.send_message(message.channel, embed=e);
+        theText.close()
         print(xtime + ": " + str(message.author.id) + " requested for " + "$help")
 
     elif message.content.startswith("$nrand"):

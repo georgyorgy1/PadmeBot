@@ -1,10 +1,8 @@
-```
-Hey there, I'm Padme, the senator from Naboo and wife of the Chosen One.
-
+```bash
 Here are the commands for PadmeBot:
 $help - see this message
 $about - see about PadmeBot
-$freshprinceofromania - See seso's story
+$freshprinceofromania - See seso`s story
 $aesthetics - prints random aesthetic artwork
 $daisy or $streetfucking - See "My Dream"
 $unixtime -  print the current time in Unix Time
