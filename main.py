@@ -189,7 +189,7 @@ async def on_message(message):
         if m == 0:
             m = 1
             mt = dt.now().minute
-            await bot.send_message(discord.Object(id="298735319694704640"), "4u");
+            await bot.send_message(discord.Object(id = master_chan), "4u");
             print(str(message.author.id) + " requested for big guy");
 
         else:
