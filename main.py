@@ -11,9 +11,11 @@ global count
 global m
 global mt
 global xtime
+global master
 count = 0;
 m = 0;
 mt = 0;
+master = "" #your Discord ID here
 #xtime = str(dt.now())
 
 def func_test():
@@ -35,7 +37,8 @@ async def on_ready():
 @asyncio.coroutine
 async def on_message(message):
     # filer = open("roaster.txt", "r");
-    global xtime
+    global xtime;
+    global master;
     xtime = str(dt.now())
     global count;
 
@@ -56,7 +59,7 @@ async def on_message(message):
         print(xtime + ": " + str(message.author.id) + " tried to submit an aesthetic OC but forgot that OC submission is currently not possible at this time");
 
     if message.content.startswith('$mindtrick'):
-        if message.author.id == "213869966003273728":
+        if message.author.id == master:
             str_content = message.content[len('$mindtrick'):].strip();
             await bot.send_message(message.channel, str_content);
             print(xtime + ": " + "$mindtrick request sent!")
@@ -94,7 +97,7 @@ async def on_message(message):
         print(xtime + ": " + str(message.author.id) + " requested for $ping.")
 
     if message.content.startswith("$r"):
-        if message.author.id == "213869966003273728":
+        if message.author.id == master:
             str_contento = message.content[len('$r'):].strip();
             str_contente = "t!rep " + str_contento
             await bot.send_message(message.channel, str_contente);
@@ -107,7 +110,7 @@ async def on_message(message):
             print(xtime + ": " + str(message.author.id) + " requested for " + "$r but was not granted access due to ID not matching");
 
     if message.content.startswith("$d"):
-        if message.author.id == "213869966003273728":
+        if message.author.id == master:
             str_contenta = message.content[len('$d'):].strip();
             str_contentb = "t!daily " + str_contenta;
             await bot.send_message(message.channel, str_contentb);
