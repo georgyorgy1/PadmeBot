@@ -30,7 +30,7 @@ booksList = {
     "Us-military-GermanPhraseBooken194365P..pdf": "https://archive.org/details/GermanPhraseBook_987",
     "DanzigIsGerman.pdf": "https://archive.org/details/DanzigIsGerman",
     "culture-of-critique.pdf": "https://document.li/u4Ng",
-    "": "https://cdn.discordapp.com/attachments/302185287545782273/321222411422924800/Suicide_of_a_Superpower_-_Patrick_J._Buchanan.epub"
+    "Suicide_of_a_Superpower_-_Patrick_J._Buchanan.epub": "https://cdn.discordapp.com/attachments/302185287545782273/321222411422924800/Suicide_of_a_Superpower_-_Patrick_J._Buchanan.epub"
 }
 
 
