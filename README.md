@@ -47,7 +47,7 @@ Requirements:
 
 Installation:
 
-1. Change the master and master_chan from "" to your Discord Account ID (for master) and Discord channel ID (for master_chan)
+1. Change the master and master_chan value from "" to your Discord Account ID (for master) and Discord channel ID (for master_chan)
 
 ####################################################
 
