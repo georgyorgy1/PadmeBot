@@ -21,19 +21,10 @@ master_chan = "321228116796112897" #Master channel here for the hourly shitposti
 channel_blacklist = ["", "", ""] #If an/a admin/moderator (or you) don't want the bot to shitpost emojis or "4u" in a certain channel, then add the channel ID here
 #xtime = str(dt.now())
 
-
-booksList = {
-    "CSharp-Book-2016-Rob-Miles-82.pdf": "http://www.robmiles.com/s/CSharp-Book-2016-Rob-Miles-82.pdf",
-    "Inside-The-Third-Reich.txt": "https://archive.org/details/Inside_the_Third_Reich_Albert_Speer",
-    "tutorial.pdf": "http://www.cplusplus.com/files/tutorial.pdf",
-    "Luthereng.pdf": "http://vho.org/aaargh/fran/livres9/Luthereng.pdf",
-    "mein-kampf.txt": "https://archive.org/details/meinkampf035176mbp",
-    "Us-military-GermanPhraseBooken194365P..pdf": "https://archive.org/details/GermanPhraseBook_987",
-    "DanzigIsGerman.pdf": "https://archive.org/details/DanzigIsGerman",
-    "culture-of-critique.pdf": "https://document.li/u4Ng",
-    "Suicide_of_a_Superpower_-_Patrick_J._Buchanan.epub": "https://cdn.discordapp.com/attachments/302185287545782273/321222411422924800/Suicide_of_a_Superpower_-_Patrick_J._Buchanan.epub"
-}
-
+if os.name == 'nt': #shit
+    dirSeparator = "\\"
+elif os.name == 'posix': #Gold
+    dirSeparator = "/"
 
 async def unixReport():
     global count
@@ -194,11 +185,15 @@ async def on_message(message):
 
     elif message.content.startswith("$ebook") or message.content.startswith("$book"):
 
-        bookSelected = random.choice(booksList.keys())
+        filename = ""
 
-        await bot.send_message(message.channel, bookSelected)
+        while not os.path.isfile("books"+dirSeparator+filename):
+            filename = random.choice(os.listdir("books"))
 
-        await bot.send_message(message.channel, random.choice(open('books.txt').readlines()));
+        with open("books"+dirSeparator+filename, 'rb') as bookFile:
+            await bot.send_file(message.channel, bookFile)
+
+        # await bot.send_message(message.channel, random.choice(open('books.txt').readlines()));
         print(xtime + ": " + "$ebook requested by " + message.author.id)
         
     elif message.content.startswith("$sesocuck"):
@@ -219,8 +214,8 @@ async def on_message(message):
             mt = dt.now().minute
             await bot.send_message(discord.Object(id = master_chan), "4u");
             print(str(message.author.id) + " requested for big guy");
-        
-        if dt.now().minute == mt + 2:
+
+    if dt.now().minute == mt + 2:
         m = 0;
 
 def main():
