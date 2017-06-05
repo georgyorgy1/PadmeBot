@@ -6,7 +6,10 @@ A shitposting bot based on AestheticsBot. Comes with the best shitposting comman
 Automated Shitposting features:
 
 - Replies "4u" when someone says "big guy"
+
 - Prints Unix Time every hour
+
+- Many more to come
 
 ####################################################
 
@@ -58,6 +61,7 @@ Requirements:
 Installation:
 
 1. Change the master and master_chan value from "" to your Discord Account ID (for master) and Discord channel ID (for master_chan)
+
 2. Run the bot
 
 ####################################################
