@@ -20,6 +20,21 @@ master = "" #your Discord ID here. This can be a list if you want
 master_chan = "" #Master channel here for the hourly shitposting
 #xtime = str(dt.now())
 
+async def unixReport():
+    while True:
+        if dt.now().minute == 0: #if you want to add channels, then add more await bot.send_message stuff. Idk
+            if count == 0:
+                count = 1
+                await bot.send_message(discord.Object(id = master_chan), "Hourly Unix Time report: " + str(int(time.time())));
+                #ftime = time.strftime("%A, %B %d, %Y %I:%M:%S %p")
+                await bot.send_message(discord.Object(id = master_chan), "```css\nBONG BONG BOT: RELOADED\n\nIt's another hour, niggers. Here are the fucking times in some cities around the world\n\nManila:\n" + ftime + "\n```")
+                print(xtime + ": " + "Hourly Unix Time report sent!");
+
+        elif dt.now().minute == 1:
+            count = 0;
+
+        time.sleep(1)
+
 @bot.event
 @asyncio.coroutine
 async def on_ready():
@@ -27,6 +42,7 @@ async def on_ready():
     global xtime;
     xtime = str(dt.now())
     await bot.change_presence(game=discord.Game(name='$help for help'))
+    asyncio.get_event_loop().create_task(unixReport())
     print(xtime + ": " + "Bot is now online. Enjoy!");
     print(xtime + ": " + str(dt.now()));
     print(xtime + ": " + str(bot.user));
@@ -43,19 +59,19 @@ async def on_message(message):
         await bot.send_message(message.channel, "PadmeBot (aka ThinkingBot/FlamePrincessBot). Copyright Emperor Kek");
         print(xtime + ": " + str(message.author.id) + " requested for " + "$about");
 
-    if message.content.startswith("$freshprinceofromania"):
+    elif message.content.startswith("$freshprinceofromania"):
         await bot.send_message(message.channel, "https://pastebin.com/PWFfcbZ2");
         print(xtime + ": " + str(message.author.id) + " requested for " + "$freshprinceofromania");
 
-    if message.content.startswith('$aesthetics'):
+    elif message.content.startswith('$aesthetics'):
         await bot.send_message(message.channel, random.choice(open('roaster.txt').readlines()));
         print(xtime + ": " + str(message.author.id) + " requested for " + "$aesthetics")
 
-    if message.content.startswith('$submit'):
+    elif message.content.startswith('$submit'):
         await bot.send_message(message.channel, "This feature is currently under development. Checkback later!");
         print(xtime + ": " + str(message.author.id) + " tried to submit an aesthetic OC but forgot that OC submission is currently not possible at this time");
 
-    if message.content.startswith('$mindtrick'):
+    elif message.content.startswith('$mindtrick'):
         if message.author.id == master:
             str_content = message.content[len('$mindtrick'):].strip();
             await bot.send_message(message.channel, str_content);
@@ -66,33 +82,19 @@ async def on_message(message):
             await bot.send_message(message.channel, "You're not my master!");
             print(xtime + ": " + str(message.author.id) + " requested for " + "$mindtrick but was not granted access due to ID not matching");
 
-    if message.content.startswith("$daisy") or message.content.startswith("$streetfucking"):
+    elif message.content.startswith("$daisy") or message.content.startswith("$streetfucking"):
         await bot.send_message(message.channel, "https://pastebin.com/AcsS5MjD <=== BEST STORY 2017");
         print(xtime + ": " + str(message.author.id) + " requested for " + "My Dream");
 
-    if dt.now().minute == 0: #if you want to add channels, then add more await bot.send_message stuff. Idk
-        if count == 0:
-            count = 1
-            await bot.send_message(discord.Object(id = master_chan), "Hourly Unix Time report: " + str(int(time.time())));
-            ftime = time.strftime("%A, %B %d, %Y %I:%M:%S %p")
-            await bot.send_message(discord.Object(id = master_chan), "```css\nBONG BONG BOT: RELOADED\n\nIt's another hour, niggers. Here are the fucking times in some cities around the world\n\nManila:\n" + ftime + "\n```")
-            print(xtime + ": " + "Hourly Unix Time report sent!");
-
-        else:
-            count = 1;
-
-    if dt.now().minute == 1:
-        count = 0;
-
-    if message.content.startswith("$unixtime"):
+    elif message.content.startswith("$unixtime"):
         await bot.send_message(message.channel, "Current Unix Time: " + str(int(time.time())));
         print(xtime + ": " + str(message.author.id) + " requested for current Unix Time.")
 
-    if message.content.startswith("$ping"):
+    elif message.content.startswith("$ping"):
         await bot.send_message(message.channel, "Pong!. Also, I can't tell the time it took to ping you back.");
         print(xtime + ": " + str(message.author.id) + " requested for $ping.")
 
-    if message.content.startswith("$r"):
+    elif message.content.startswith("$r"):
         if message.author.id == master:
             str_contento = message.content[len('$r'):].strip();
             str_contente = "t!rep " + str_contento
@@ -105,7 +107,7 @@ async def on_message(message):
             await bot.send_message(message.channel, "You're not my master!");
             print(xtime + ": " + str(message.author.id) + " requested for " + "$r but was not granted access due to ID not matching");
 
-    if message.content.startswith("$d"):
+    elif message.content.startswith("$d"):
         if message.author.id == master:
             str_contenta = message.content[len('$d'):].strip();
             str_contentb = "t!daily " + str_contenta;
@@ -118,21 +120,21 @@ async def on_message(message):
             await bot.send_message(message.channel, "You're not my master!");
             print(xtime + ": " + str(message.author.id) + " requested for " + "$d but was not granted access due to ID not matching" );
 
-    if message.content.startswith("$bongtest"):
+    elif message.content.startswith("$bongtest"):
         mtime = time.strftime("%A, %B %d, %Y %I:%M:%S %p")
         await bot.send_message(message.channel, "```css\nBONG BONG BOT: RELOADED\n\nIt's another hour, niggers. Here are the fucking times in some cities around the world\n\nManila:\n" + mtime + "\n```")
         print(xtime + ": " + "This fag asked for bong bong: " + str(message.author.id))
 
-    if message.content.startswith("$irand"):
+    elif message.content.startswith("$irand"):
         irand = random.randint(0, 2147483647)
         await bot.send_message(message.channel, str(irand))
         print(xtime + ": " + str(message.author.id) + " generated a random number using irand")
 
-    if message.content.startswith("$help"):
+    elif message.content.startswith("$help"):
         await bot.send_message(message.channel, open('help.txt').read());
         print(xtime + ": " + str(message.author.id) + " requested for " + "$help")
 
-    if message.content.startswith("$nrand"):
+    elif message.content.startswith("$nrand"):
         xrand =  message.content[len('$nrand'):].strip();
         
         if xrand == "":
@@ -170,17 +172,17 @@ async def on_message(message):
                 await bot.send_message(message.channel, str(randint))
                 print(xtime + ": " + str(message.author.id) + " generated a random number using nrand")
 
-    if message.content.startswith("$ebook") or message.content.startswith("$book"):
+    elif message.content.startswith("$ebook") or message.content.startswith("$book"):
         await bot.send_message(message.channel, random.choice(open('books.txt').readlines()));
         print(xtime + ": " + "$ebook requested by " + message.author.id)
+        
+    elif message.content.startswith("$sesocuck"):
+        await bot.send_message(message.channel, "https://youtu.be/c6S8cgAoaNM");
+        print(str(message.author) + " requested for $sesocuck")
 
     if "lol" in message.content:
         await bot.add_reaction(message, '😂')
         print(xtime + ": " + "Emoji shitpost requested by " + message.author.id)
-        
-    if message.content.startswith("$sesocuck"):
-        await bot.send_message(message.channel, "https://youtu.be/c6S8cgAoaNM");
-        print(str(message.author) + " requested for $sesocuck")
 
     if message.content.find('big guy'):
         global m
@@ -204,7 +206,7 @@ def main():
     email = "";
     password = "";
     token = "";
-    bot_start = input("Start bot as?(u/t): ");
+    bot_start = "u" #input("Start bot as?(u/t): ");
 
     if bot_start == "u":
         email = input(xtime + ": " + "Enter email: ");
