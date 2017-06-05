@@ -29,6 +29,8 @@ $nrand - Like irand, but with a range. This prints the help info
 $book/$ebook - get a random ebook for you to read
 
 
+
+
 Commands (for bot master):
 
 $r - give rep to anyone (Tatsumaki)
@@ -43,8 +45,14 @@ Requirements:
 
 - Discord.py Library
 
+
+
+
 Installation:
 
 1. Change the master and master_chan from "" to your Discord Account ID (for master) and Discord channel ID (for master_chan)
+
+
+
 
 That's all (for now).
