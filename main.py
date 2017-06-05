@@ -16,7 +16,8 @@ global master
 count = 0;
 m = 0;
 mt = 0;
-master = "" #your Discord ID here
+master = "" #your Discord ID here. This can be a list if you want
+master_chan = "" #Master channel here for the hourly shitposting
 #xtime = str(dt.now())
 
 def func_test():
@@ -73,13 +74,12 @@ async def on_message(message):
         await bot.send_message(message.channel, "https://pastebin.com/AcsS5MjD <=== BEST STORY 2017");
         print(xtime + ": " + str(message.author.id) + " requested for " + "My Dream");
 
-    if dt.now().minute == 0:
+    if dt.now().minute == 0: #if you want to add channels, then add more await bot.send_message stuff. Idk
         if count == 0:
             count = 1
-            await bot.send_message(discord.Object(id = "275686777560236044"), "Hourly Unix Time report: " + str(int(time.time())));
+            await bot.send_message(discord.Object(id = master_chan), "Hourly Unix Time report: " + str(int(time.time())));
             #ftime = time.strftime("%A, %B %d, %Y %I:%M:%S %p")
-            #await bot.send_message(discord.Object(id = "302185287545782273"), "```css\nBONG BONG BOT: RELOADED\n\nIt's another hour, niggers. Here are the fucking times in some cities around the world\n\nManila:\n" + ftime + "\n```")
-            #print("This fag asked for bong bong: " + str(message.author.id))
+            await bot.send_message(discord.Object(id = master_chan), "```css\nBONG BONG BOT: RELOADED\n\nIt's another hour, niggers. Here are the fucking times in some cities around the world\n\nManila:\n" + ftime + "\n```")
             print(xtime + ": " + "Hourly Unix Time report sent!");
 
         else:
