@@ -42,16 +42,6 @@ $sesocuck - posts the link to seso cuck video
 
 ####################################################
 
-Commands (for bot master):
-
-$r - give rep to anyone (Tatsumaki)
-
-$d - give daily credits to anyone (Tatsumaki)
-
-$mindtrick - make the bot say what you want
-
-####################################################
-
 Requirements:
 
 - Discord.py Library
