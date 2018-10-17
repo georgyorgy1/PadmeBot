@@ -99,29 +99,7 @@ async def on_message(message):
     elif message.content.startswith("$ping"):
         await bot.send_message(message.channel, "Pong!. Also, I can't tell the time it took to ping you back.");
         print(xtime + ": " + str(message.author.id) + " requested for $ping.")
-
-    elif message.content.startswith("$r"):
-        if message.author.id in master:
-            str_contento = message.content[len('$r'):].strip();
-            str_contente = "t!rep " + str_contento
-            await bot.send_message(message.channel, str_contente);
-            print(xtime + ": " + "$r request sent!")
-            str_contento = "";
-            str_contente = "";
-
-        else:
-            await bot.send_message(message.channel, "You're not my master!");
-            print(xtime + ": " + str(message.author.id) + " requested for " + "$r but was not granted access due to ID not matching");
-
-    elif message.content.startswith("$d"):
-        if message.author.id in master:
-            str_contenta = message.content[len('$d'):].strip();
-            str_contentb = "t!daily " + str_contenta;
-            await bot.send_message(message.channel, str_contentb);
-            print(xtime + ": " + "$d request sent!")
-            str_contenta = "";
-            str_contentb = "";
-
+        
         else:
             await bot.send_message(message.channel, "You're not my master!");
             print(xtime + ": " + str(message.author.id) + " requested for " + "$d but was not granted access due to ID not matching" );
